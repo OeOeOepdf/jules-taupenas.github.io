@@ -1,3 +1,8 @@
+/* Active le défilement fluide sur toute la page */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: system-ui, sans-serif;
   line-height: 1.6;
@@ -14,16 +19,67 @@ header {
   margin-bottom: 2rem;
 }
 
+/* Mise en forme du sommaire */
+.sommaire {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.sommaire-titre {
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
+  color: #374151;
+}
+
+.sommaire ul {
+  list-style: none; /* Retire les points noirs de la liste */
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap; /* Permet aux boutons de passer à la ligne sur mobile */
+  gap: 0.6rem;
+}
+
+.sommaire a {
+  display: inline-block;
+  background-color: #eff6ff;
+  color: #1d4ed8;
+  padding: 0.4rem 0.85rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+/* Changement de couleur au survol de la souris */
+.sommaire a:hover {
+  background-color: #2563eb;
+  color: #ffffff;
+}
+
+/* Cartes des projets */
 .carte {
   background: #ffffff;
   border: 1px solid #e5e7eb;
   border-radius: 8px;
   padding: 1.25rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  scroll-margin-top: 1.5rem; /* Laisse un espace respirant en haut lors de l'arrivée */
 }
 
 a {
   color: #2563eb;
   text-decoration: none;
   font-weight: 600;
+}
+
+footer {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e5e7eb;
+  color: #6b7280;
 }
