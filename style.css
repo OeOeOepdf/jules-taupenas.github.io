@@ -82,11 +82,11 @@ main, footer {
   max-width: 800px;
   margin: 0 auto;
   padding: 2rem 1rem;
+  background-color: #f9fafb;
 }
 
 .carte {
   background: #ffffff;
-  background-color: #f9fafb;
   border: 1px solid #e5e7eb;
   border-radius: 8px;
   padding: 1.25rem;
