@@ -3,62 +3,97 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Taupenas jules — Portfolio</title>
+  <title>Taupenas Jules — Portfolio</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Bannière plein écran avec image de fond -->
-  <header class="hero">
+  <!-- =========================================================
+       PREMIÈRE PAGE (ÉCRAN D'ACCUEIL & PRÉSENTATION)
+       ========================================================= -->
+  <header id="accueil" class="hero">
     <div class="hero-contenu">
       <h1>Taupenas Jules</h1>
-      <p class="sous-titre">Étudiant • Sport Automobile • Passioné</p>
-      <p class="sous-titre">Découvrir mes projets</p>
+      <p class="sous-titre">Étudiant • Sport Automobile • Passionné</p>
 
+      <!-- Encadré de présentation (comme sur votre croquis) -->
+      <div class="zone-presentation">
+        <p>
+          Bienvenue sur mon portfolio. Étudiant passionné par l'ingénierie, le numérique et le sport automobile, 
+          je partage ici mon parcours académique ainsi que les projets techniques que j'ai réalisés.
+        </p>
+      </div>
 
-      <!-- Sommaire intégré au centre -->
-      <nav class="sommaire" aria-label="Sommaire des projets">
+      <!-- Menu principal vers les grandes parties du site -->
+      <nav class="sommaire" aria-label="Menu principal">
         <ul>
-          <li><a href="#projet-1">1. Mon parcour</a></li>
-          <li><a href="#projet-2">2. Mes Projets</a></li>
+          <li><a href="#parcours">1. Mon parcours</a></li>
+          <li><a href="#projets">2. Mes Projets</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <!-- Le reste de la page reste centré sur 800px de large -->
+  <!-- =========================================================
+       CONTENU PRINCIPAL DE LA PAGE
+       ========================================================= -->
   <main>
-    <section id="a-propos">
-      <h2>À propos</h2>
-      <p>Bienvenue sur mon portfolio. Sélectionnez un projet dans le sommaire ci-dessus ou faites défiler la page pour découvrir mon travail.</p>
+
+    <!-- SECTION 1 : MON PARCOURS (avant les projets) -->
+    <section id="parcours">
+      <h2>1. Mon parcours</h2>
+      <div class="carte">
+        <h3>Formation & Objectifs</h3>
+        <p>
+          Décrivez ici votre formation actuelle (ex. BUT, école d'ingénieurs, lycée...), vos centres d'intérêt 
+          autour du sport automobile et les compétences techniques que vous développez.
+        </p>
+      </div>
     </section>
 
+    <!-- SECTION 2 : MES PROJETS (avec son propre sommaire) -->
     <section id="projets">
-      <h2>Mes projets</h2>
+      <h2>2. Mes projets</h2>
 
+      <!-- Sommaire spécifique aux projets -->
+      <nav class="sommaire-projets" aria-label="Sommaire des projets">
+        <p class="sommaire-projets-titre">Accéder directement à un projet :</p>
+        <ul>
+          <li><a href="#projet-1">1. SAÉ drones</a></li>
+          <li><a href="#projet-2">2. Stage Ouvrier</a></li>
+          <li><a href="#projet-3">3. Mini-jeu JavaScript</a></li>
+        </ul>
+      </nav>
+
+      <!-- Liste détaillée des projets -->
       <article id="projet-1" class="carte">
         <h3>1. SAÉ drones</h3>
-        <p>Interface web affichant les prévisions en temps réel à partir d'une API publique.</p>
-        <a href="https://github.com/votre-identifiant">Voir le code sur GitHub →</a>
+        <p>Décrivez ici l'objectif de cette SAÉ, le travail réalisé sur les drones et les résultats obtenus.</p>
+        <a href="https://github.com/oeoeoepdf">Voir le projet sur GitHub →</a>
       </article>
 
       <article id="projet-2" class="carte">
         <h3>2. Stage Ouvrier</h3>
-        <p>Création d'une page de présentation moderne avec horaires, carte des produits et formulaire.</p>
-        <a href="https://github.com/votre-identifiant">Voir le code sur GitHub →</a>
+        <p>Présentez ici l'entreprise d'accueil, vos missions sur le terrain et ce que cette expérience vous a apporté.</p>
+        <a href="https://github.com/oeoeoepdf">En savoir plus →</a>
       </article>
 
       <article id="projet-3" class="carte">
         <h3>3. Mini-jeu JavaScript</h3>
         <p>Jeu de mémoire interactif développé uniquement en HTML, CSS et JavaScript pur.</p>
-        <a href="https://github.com/votre-identifiant">Voir le code sur GitHub →</a>
+        <a href="https://github.com/oeoeoepdf">Voir le code sur GitHub →</a>
       </article>
     </section>
+
   </main>
 
+  <!-- =========================================================
+       PIED DE PAGE
+       ========================================================= -->
   <footer id="contact">
     <p>Contact : jules.tpns@gmail.com</p>
+    <p><a href="#accueil" class="retour-haut">↑ Remonter à la présentation</a></p>
   </footer>
 
 </body>
