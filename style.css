@@ -2,20 +2,20 @@ html {
   scroll-behavior: smooth;
 }
 
-/* 1. Suppression de la marge par défaut du navigateur */
+/* 1. Le fond uni et la couleur du texte s'appliquent à TOUT l'écran (et à toutes vos pages) */
 body {
   margin: 0;
   font-family: system-ui, sans-serif;
   line-height: 1.6;
-  color: #1f2937;
-  background-color: #f9fafb;
+  color: #f8fafc;            /* Texte blanc cassé lisible sur le fond sombre */
+  background-color: #0f172a; /* Bleu nuit uni sur 100 % de la largeur et de la hauteur */
 }
 
-/* 2. La bannière plein écran */
+/* 2. La bannière plein écran (transparente pour laisser voir le fond du body sans coupure) */
 .hero {
-  min-height: 100vh; /* Prend 100% de la hauteur de l'écran */
+  min-height: 100vh;
   width: 100%;
-  box-sizing: border-box; /* Empêche les marges internes de créer un défilement horizontal */
+  box-sizing: border-box;
   padding: 2rem 1rem;
 
   /* Centrage vertical et horizontal parfait */
@@ -24,15 +24,7 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-
-  /* Image de fond + voile sombre pour la lisibilité */
   color: #ffffff;
-  background-color: #1e293b; /* Couleur de secours si l'image n'est pas encore chargée */
-  background-image: 
-    linear-gradient(rgba(15, 23, 42, 0.65), rgba(15, 23, 42, 0.65)),
-    url('fond.jpg');
-  background-size: cover;      /* L'image remplit tout l'espace sans se déformer */
-  background-position: center; /* L'image reste centrée même sur mobile */
 }
 
 .hero h1 {
@@ -61,7 +53,7 @@ body {
 .sommaire a {
   display: inline-block;
   background-color: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(6px); /* Effet verre dépoli moderne */
+  backdrop-filter: blur(6px);
   border: 1px solid rgba(255, 255, 255, 0.3);
   color: #ffffff;
   padding: 0.5rem 1rem;
@@ -84,8 +76,10 @@ main, footer {
   padding: 2rem 1rem;
 }
 
+/* 4. Les cartes gardent un fond blanc et un texte foncé */
 .carte {
-  background: #ffffff;
+  background-color: #ffffff;
+  color: #1f2937; /* Indispensable pour que le texte reste foncé dans la carte blanche */
   border: 1px solid #e5e7eb;
   border-radius: 8px;
   padding: 1.25rem;
@@ -101,6 +95,6 @@ main, footer {
 
 footer {
   margin-top: 2rem;
-  border-top: 1px solid #e5e7eb;
-  color: #6b7280;
+  border-top: 1px solid rgba(255, 255, 255, 0.15); /* Ligne discrète adaptée au fond sombre */
+  color: #94a3b8; /* Gris clair lisible sur le bleu nuit */
 }
