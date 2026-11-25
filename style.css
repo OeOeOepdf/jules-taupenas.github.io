@@ -2,44 +2,63 @@ html {
   scroll-behavior: smooth;
 }
 
-/* 1. Le fond uni et la couleur du texte s'appliquent à TOUT l'écran (et à toutes vos pages) */
+/* 1. Fond bleu nuit uni sur l'ensemble du site */
 body {
   margin: 0;
   font-family: system-ui, sans-serif;
   line-height: 1.6;
-  color: #f8fafc;            /* Texte blanc cassé lisible sur le fond sombre */
-  background-color: #0f172a; /* Bleu nuit uni sur 100 % de la largeur et de la hauteur */
+  color: #f8fafc;
+  background-color: #0f172a;
 }
 
-/* 2. La bannière plein écran (transparente pour laisser voir le fond du body sans coupure) */
+/* 2. Première page : Présentation plein écran */
 .hero {
   min-height: 100vh;
   width: 100%;
   box-sizing: border-box;
   padding: 2rem 1rem;
 
-  /* Centrage vertical et horizontal parfait */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  color: #ffffff;
+}
+
+.hero-contenu {
+  max-width: 700px; /* Empêche le texte de présentation d'être trop large sur grand écran */
 }
 
 .hero h1 {
   font-size: 3rem;
   margin: 0 0 0.5rem 0;
   letter-spacing: -0.02em;
+  color: #ffffff;
 }
 
 .sous-titre {
   font-size: 1.2rem;
-  color: #e2e8f0;
-  margin: 0 0 2rem 0;
+  color: #93c5fd; /* Bleu clair lumineux pour faire ressortir vos mots-clés */
+  font-weight: 500;
+  margin: 0 0 1.5rem 0;
 }
 
-/* Sommaire adapté au fond sombre */
+/* L'encadré de présentation au centre de l'accueil */
+.zone-presentation {
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 2rem;
+  color: #e2e8f0;
+  font-size: 1.05rem;
+}
+
+.zone-presentation p {
+  margin: 0;
+}
+
+/* Menu principal de l'accueil */
 .sommaire ul {
   list-style: none;
   padding: 0;
@@ -53,13 +72,13 @@ body {
 .sommaire a {
   display: inline-block;
   background-color: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(6px);
   border: 1px solid rgba(255, 255, 255, 0.3);
   color: #ffffff;
-  padding: 0.5rem 1rem;
+  padding: 0.6rem 1.2rem;
   border-radius: 6px;
   font-size: 0.95rem;
   font-weight: 500;
+  text-decoration: none;
   transition: background-color 0.2s, transform 0.2s;
 }
 
@@ -69,22 +88,72 @@ body {
   transform: translateY(-2px);
 }
 
-/* 3. Le contenu principal garde une largeur de lecture confortable */
+/* 3. Contenu principal centré */
 main, footer {
   max-width: 800px;
   margin: 0 auto;
   padding: 2rem 1rem;
 }
 
-/* 4. Les cartes gardent un fond blanc et un texte foncé */
+section {
+  margin-bottom: 3.5rem;
+  scroll-margin-top: 2rem; /* Laisse de l'espace en haut quand on clique dans le menu */
+}
+
+/* 4. Sommaire interne dans la section Mes Projets */
+.sommaire-projets {
+  background-color: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.sommaire-projets-titre {
+  margin: 0 0 0.75rem 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #cbd5e1;
+}
+
+.sommaire-projets ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.sommaire-projets a {
+  display: inline-block;
+  background-color: #2563eb;
+  color: #ffffff;
+  padding: 0.45rem 0.9rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+.sommaire-projets a:hover {
+  background-color: #1d4ed8;
+}
+
+/* 5. Cartes blanches pour le parcours et chaque projet */
 .carte {
   background-color: #ffffff;
-  color: #1f2937; /* Indispensable pour que le texte reste foncé dans la carte blanche */
+  color: #1f2937;
   border: 1px solid #e5e7eb;
   border-radius: 8px;
-  padding: 1.25rem;
+  padding: 1.5rem;
   margin-bottom: 1.5rem;
-  scroll-margin-top: 1.5rem;
+  scroll-margin-top: 2rem;
+}
+
+.carte h3 {
+  margin-top: 0;
 }
 
 .carte a {
@@ -93,8 +162,23 @@ main, footer {
   font-weight: 600;
 }
 
+/* 6. Pied de page */
 footer {
   margin-top: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.15); /* Ligne discrète adaptée au fond sombre */
-  color: #94a3b8; /* Gris clair lisible sur le bleu nuit */
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  color: #94a3b8;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.retour-haut {
+  color: #93c5fd;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.retour-haut:hover {
+  text-decoration: underline;
 }
