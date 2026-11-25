@@ -1,85 +1,106 @@
-/* Active le défilement fluide sur toute la page */
 html {
   scroll-behavior: smooth;
 }
 
+/* 1. Suppression de la marge par défaut du navigateur */
 body {
+  margin: 0;
   font-family: system-ui, sans-serif;
   line-height: 1.6;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
   color: #1f2937;
   background-color: #f9fafb;
 }
 
-header {
-  border-bottom: 2px solid #e5e7eb;
-  padding-bottom: 1.5rem;
-  margin-bottom: 2rem;
+/* 2. La bannière plein écran */
+.hero {
+  min-height: 100vh; /* Prend 100% de la hauteur de l'écran */
+  width: 100%;
+  box-sizing: border-box; /* Empêche les marges internes de créer un défilement horizontal */
+  padding: 2rem 1rem;
+
+  /* Centrage vertical et horizontal parfait */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  /* Image de fond + voile sombre pour la lisibilité */
+  color: #ffffff;
+  background-color: #1e293b; /* Couleur de secours si l'image n'est pas encore chargée */
+  background-image: 
+    linear-gradient(rgba(15, 23, 42, 0.65), rgba(15, 23, 42, 0.65)),
+    url('fond.jpg');
+  background-size: cover;      /* L'image remplit tout l'espace sans se déformer */
+  background-position: center; /* L'image reste centrée même sur mobile */
 }
 
-/* Mise en forme du sommaire */
-.sommaire {
-  background-color: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
-  padding: 1rem 1.25rem;
-  margin-top: 1.5rem;
+.hero h1 {
+  font-size: 3rem;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: -0.02em;
 }
 
-.sommaire-titre {
-  font-weight: 700;
-  margin-top: 0;
-  margin-bottom: 0.75rem;
-  font-size: 0.95rem;
-  color: #374151;
+.sous-titre {
+  font-size: 1.2rem;
+  color: #e2e8f0;
+  margin: 0 0 2rem 0;
 }
 
+/* Sommaire adapté au fond sombre */
 .sommaire ul {
-  list-style: none; /* Retire les points noirs de la liste */
+  list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
-  flex-wrap: wrap; /* Permet aux boutons de passer à la ligne sur mobile */
-  gap: 0.6rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
 }
 
 .sommaire a {
   display: inline-block;
-  background-color: #eff6ff;
-  color: #1d4ed8;
-  padding: 0.4rem 0.85rem;
-  border-radius: 6px;
-  font-size: 0.9rem;
-  transition: background-color 0.2s, color 0.2s;
-}
-
-/* Changement de couleur au survol de la souris */
-.sommaire a:hover {
-  background-color: #2563eb;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(6px); /* Effet verre dépoli moderne */
+  border: 1px solid rgba(255, 255, 255, 0.3);
   color: #ffffff;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: background-color 0.2s, transform 0.2s;
 }
 
-/* Cartes des projets */
+.sommaire a:hover {
+  background-color: #ffffff;
+  color: #0f172a;
+  transform: translateY(-2px);
+}
+
+/* 3. Le contenu principal garde une largeur de lecture confortable */
+main, footer {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
 .carte {
   background: #ffffff;
   border: 1px solid #e5e7eb;
   border-radius: 8px;
   padding: 1.25rem;
   margin-bottom: 1.5rem;
-  scroll-margin-top: 1.5rem; /* Laisse un espace respirant en haut lors de l'arrivée */
+  scroll-margin-top: 1.5rem;
 }
 
-a {
+.carte a {
   color: #2563eb;
   text-decoration: none;
   font-weight: 600;
 }
 
 footer {
-  margin-top: 3rem;
-  padding-top: 1rem;
+  margin-top: 2rem;
   border-top: 1px solid #e5e7eb;
   color: #6b7280;
 }
