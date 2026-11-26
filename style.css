@@ -258,106 +258,145 @@ footer {
   text-decoration: underline;
 }
 /* =========================================================
-   AXE TEMPOREL (FRISE CHRONOLOGIQUE)
+   AXE TEMPOREL EN SERPENTIN (COURBE EN U EXTENSIBLE)
    ========================================================= */
-.frise-conteneur {
-  width: 100%;
-  overflow-x: auto; /* Permet de faire défiler horizontalement s'il y a beaucoup d'étapes */
-  padding: 2rem 0 1rem 0;
+.frise-serpentin {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-flow: dense; /* Permet d'inverser l'ordre droite -> gauche sur les lignes impaires */
+  row-gap: 2.25rem;
+  margin: 2.5rem 48px; /* Laisse exactement la place pour les virages à gauche et à droite */
 }
 
-.frise-axe {
-  display: flex;
-  align-items: flex-end; /* Aligne tous les repères verticaux sur la même ligne */
+/* Placement en serpentin :
+   Ligne 1 : Étape 1 à droite, Étape 2 à gauche
+   Ligne 2 : Étape 3 à gauche, Étape 4 à droite
+   Ligne 3 : Étape 5 à droite, Étape 6 à gauche, etc. */
+.etape:nth-child(4n + 1) { grid-column: 2; }
+.etape:nth-child(4n + 2) { grid-column: 1; }
+.etape:nth-child(4n + 3) { grid-column: 1; }
+.etape:nth-child(4n + 4) { grid-column: 2; }
+
+.etape {
   position: relative;
-  min-width: max-content; /* S'adapte automatiquement au nombre d'étapes ajoutées */
-  width: 100%;
-  gap: 1.25rem;
-}
-
-/* La ligne horizontale continue */
-.frise-axe::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 8px; /* S'arrête juste à la base de la flèche */
-  bottom: 11px;
-  transform: translateY(50%);
-  height: 3px;
-  background-color: #93c5fd;
-  border-radius: 2px;
-}
-
-/* Chaque colonne d'étape (texte en haut + repère vertical en bas) */
-.frise-etape {
-  flex: 1;
-  min-width: 190px;
-  max-width: 240px;
   display: flex;
   flex-direction: column;
+  justify-content: flex-end; /* Aligne toujours l'axe tout en bas de la ligne */
   align-items: center;
 }
 
-/* La zone de texte au-dessus de l'axe */
-.frise-texte {
+/* Zone de texte au-dessus du repère */
+.etape-texte {
+  width: calc(100% - 1.5rem);
+  box-sizing: border-box;
   background-color: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 8px;
   padding: 0.85rem 1rem;
-  margin-bottom: 0.75rem;
-  width: 100%;
-  box-sizing: border-box;
+  margin-bottom: 0.65rem;
   text-align: left;
   transition: transform 0.2s, border-color 0.2s;
 }
 
-.frise-texte:hover {
+.etape-texte:hover {
   transform: translateY(-3px);
   border-color: #93c5fd;
 }
 
-.frise-date {
+.etape-date {
   display: inline-block;
   font-size: 0.75rem;
   font-weight: 700;
   color: #93c5fd;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.2rem;
 }
 
-.frise-texte h4 {
-  margin: 0 0 0.35rem 0;
+.etape-texte h4 {
+  margin: 0 0 0.3rem 0;
   font-size: 1rem;
   color: #ffffff;
 }
 
-.frise-texte p {
+.etape-texte p {
   margin: 0;
   font-size: 0.85rem;
   line-height: 1.45;
   color: #cbd5e1;
 }
 
-/* Le trait vertical qui coupe l'axe */
-.frise-repere {
+/* Rail de l'axe (24px de haut : la ligne passe à 12px, pile au milieu du repère) */
+.etape-axe {
+  position: relative;
+  width: 100%;
+  height: 24px;
+}
+
+/* Trait horizontal continu */
+.etape-axe::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: #93c5fd;
+}
+
+/* Trait vertical qui traverse l'axe */
+.etape-repere {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
   width: 3px;
-  height: 22px;
+  height: 24px;
   background-color: #93c5fd;
   border-radius: 2px;
-  position: relative;
   z-index: 1;
 }
 
-/* La pointe de flèche à droite de l'axe */
-.frise-fleche {
-  width: 24px;
-  height: 22px;
-  position: relative;
-  flex-shrink: 0;
+/* Début de la ligne en haut à droite (ne dépasse pas inutilement à droite) */
+.etape:first-child .etape-axe::before {
+  right: 18%;
 }
 
-.frise-fleche::after {
+/* Virage en U sur la gauche (relie la ligne du haut à la ligne du bas) */
+.etape:nth-child(4n + 3)::after {
+  content: "";
+  position: absolute;
+  left: -45px;
+  width: 45px;
+  top: -13.5px;   /* Rejoint le centre de la ligne supérieure */
+  bottom: 10.5px; /* Rejoint le centre de la ligne inférieure */
+  border: 3px solid #93c5fd;
+  border-right: none;
+  border-radius: 999px 0 0 999px;
+}
+
+/* Virage en U sur la droite (apparaît automatiquement si vous ajoutez une 5e étape ou plus) */
+.etape:nth-child(4n + 5)::after {
+  content: "";
+  position: absolute;
+  right: -45px;
+  width: 45px;
+  top: -13.5px;
+  bottom: 10.5px;
+  border: 3px solid #93c5fd;
+  border-left: none;
+  border-radius: 0 999px 999px 0;
+}
+
+/* Flèche de fin vers la droite (quand la dernière étape est sur une ligne paire : 3e, 4e, 7e, 8e...) */
+.etape:last-child:nth-child(4n + 3) .etape-axe::before,
+.etape:last-child:nth-child(4n + 4) .etape-axe::before {
+  right: 12px;
+}
+
+.etape:last-child:nth-child(4n + 3) .etape-axe::after,
+.etape:last-child:nth-child(4n + 4) .etape-axe::after {
   content: "";
   position: absolute;
   right: 0;
@@ -366,4 +405,44 @@ footer {
   border-top: 8px solid transparent;
   border-bottom: 8px solid transparent;
   border-left: 14px solid #93c5fd;
+}
+
+/* Flèche de fin vers la gauche (si vous vous arrêtez sur une 2e, 5e ou 6e étape) */
+.etape:last-child:nth-child(4n + 2) .etape-axe::before,
+.etape:last-child:nth-child(4n + 5) .etape-axe::before {
+  left: 12px;
+}
+
+.etape:last-child:nth-child(4n + 2) .etape-axe::after,
+.etape:last-child:nth-child(4n + 5) .etape-axe::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-right: 14px solid #93c5fd;
+}
+
+/* Adaptation mobile : réduit la largeur des virages pour garder le dessin intact sur téléphone */
+@media (max-width: 650px) {
+  .frise-serpentin {
+    margin: 2rem 24px;
+  }
+
+  .etape:nth-child(4n + 3)::after {
+    left: -22px;
+    width: 22px;
+  }
+
+  .etape:nth-child(4n + 5)::after {
+    right: -22px;
+    width: 22px;
+  }
+
+  .etape-texte {
+    width: calc(100% - 0.6rem);
+    padding: 0.65rem 0.75rem;
+  }
 }
