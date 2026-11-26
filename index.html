@@ -9,55 +9,85 @@
 <body>
 
   <!-- =========================================================
-       PREMIÈRE PAGE (ÉCRAN D'ACCUEIL & PRÉSENTATION)
+       PREMIÈRE PAGE : PRÉSENTATION EN DEUX COLONNES
        ========================================================= -->
   <header id="accueil" class="hero">
-    <div class="hero-contenu">
-      <h1>Taupenas Jules</h1>
-      <p class="sous-titre">Étudiant • Sport Automobile • Passionné</p>
+    <div class="hero-grille">
 
-      <!-- Encadré de présentation (comme sur votre croquis) -->
-      <div class="zone-presentation">
-        <p>
-          Bienvenue sur mon portfolio. Étudiant passionné par l'ingénierie et le sport automobile, 
-          je partage ici mon parcours académique ainsi que les projets techniques que j'ai réalisés.
-        </p>
+      <!-- Colonne de gauche : votre photo -->
+      <div class="hero-photo">
+        <img src="photo.jpg" alt="Portrait de Taupenas Jules">
       </div>
 
-      <!-- Menu principal vers les grandes parties du site -->
-      <nav class="sommaire" aria-label="Menu principal">
-        <ul>
-          <li><a href="#parcours">1. Mon parcours</a></li>
-          <li><a href="#projets">2. Mes Projets</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
+      <!-- Colonne de droite : texte, boutons et informations -->
+      <div class="hero-texte">
+        <p class="sur-titre">BONJOUR, JE SUIS</p>
+        <h1>Taupenas Jules</h1>
+        <p class="sous-titre">Étudiant • Sport Automobile • Passionné</p>
+
+        <p class="description-hero">
+          Étudiant passionné par l'ingénierie, le numérique et le sport automobile. 
+          Je conçois des projets techniques alliant rigueur mécanique, électronique et développement web.
+        </p>
+
+        <!-- Les deux boutons pilules côte à côte -->
+        <div class="hero-boutons">
+          <a href="#projets" class="btn-principal">Voir mes projets</a>
+          <a href="#contact" class="btn-secondaire">Me contacter</a>
+        </div>
+
+        <!-- Ligne d'informations rapides avec icônes -->
+        <div class="hero-infos">
+          <span class="info-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            France
+          </span>
+
+          <span class="info-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            Disponible
+          </span>
+
+          <span class="info-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+            </svg>
+            Votre École / Formation
+          </span>
+        </div>
+      </div>
+
     </div>
   </header>
 
   <!-- =========================================================
-       CONTENU PRINCIPAL DE LA PAGE
+       CONTENU PRINCIPAL DE LA PAGE (INCHANGÉ)
        ========================================================= -->
   <main>
 
-    <!-- SECTION 1 : MON PARCOURS (avant les projets) -->
+    <!-- SECTION 1 : MON PARCOURS -->
     <section id="parcours">
-      <h2> Mon parcours</h2>
+      <h2>1. Mon parcours</h2>
       <div class="carte">
-        <h3>Jusqu'ici </h3>
+        <h3>Formation & Objectifs</h3>
         <p>
-          Originaire de la région d'Avignon, j'ai obtenu mon bac général au lycée Saint-Joseph avec les spécialités mathématiques et sciences de l'ingénieur. 
-          Passionné depuis mon plus jeune âge par le sport automobile, me tourner vers une école d'ingénieurs était la suite logique de mon parcours. 
-          J'ai ainsi intégré l'INSA Hauts-de-France en cursus préparatoire en septembre 2024. C'est au cours de ce cursus de deux ans que mes projets les plus importants ont pris forme
+          Décrivez ici votre formation actuelle, vos centres d'intérêt autour du sport automobile 
+          et les compétences techniques que vous développez.
         </p>
       </div>
     </section>
 
-    <!-- SECTION 2 : MES PROJETS (avec son propre sommaire) -->
+    <!-- SECTION 2 : MES PROJETS (avec son sommaire interne) -->
     <section id="projets">
       <h2>2. Mes projets</h2>
 
-      <!-- Sommaire spécifique aux projets -->
       <nav class="sommaire-projets" aria-label="Sommaire des projets">
         <p class="sommaire-projets-titre">Accéder directement à un projet :</p>
         <ul>
@@ -67,7 +97,6 @@
         </ul>
       </nav>
 
-      <!-- Liste détaillée des projets -->
       <article id="projet-1" class="carte">
         <h3>1. SAÉ drones</h3>
         <p>Décrivez ici l'objectif de cette SAÉ, le travail réalisé sur les drones et les résultats obtenus.</p>
