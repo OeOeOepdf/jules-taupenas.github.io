@@ -1,4 +1,80 @@
-<!-- SECTION 1 : MON PARCOURS -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taupenas Jules — Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- =========================================================
+       PREMIÈRE PAGE : PRÉSENTATION EN DEUX COLONNES
+       ========================================================= -->
+  <header id="accueil" class="hero">
+    <div class="hero-grille">
+
+      <!-- Colonne de gauche : votre photo -->
+      <div class="hero-photo">
+        <img src="photo cv.PNG" alt="Portrait de Taupenas Jules">
+      </div>
+
+      <!-- Colonne de droite : texte, boutons et informations -->
+      <div class="hero-texte">
+        <p class="sur-titre">BONJOUR, JE SUIS</p>
+        <h1>Taupenas Jules</h1>
+        <p class="sous-titre">Étudiant • Mécatronique</p>
+
+        <p class="description-hero">
+         Bienvenue sur mon portfolio. Étudiant passionné par l'ingénierie et le sport automobile, 
+          je partage ici mon parcours académique ainsi que les projets techniques que j'ai réalisés.
+
+        </p>
+
+        <!-- Les trois boutons pilules côte à côte -->
+        <div class="hero-boutons">
+          <a href="#projets" class="btn-principal">Mon parcours</a>
+          <a href="#projets" class="btn-principal">Voir mes projets</a>
+          <a href="#contact" class="btn-secondaire">Me contacter</a>
+        </div>
+
+        <!-- Ligne d'informations rapides avec icônes -->
+        <div class="hero-infos">
+          <span class="info-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            Valenciennes
+          </span>
+
+          <span class="info-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            Disponible
+          </span>
+
+          <span class="info-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+            </svg>
+            INSA Haut-De-France
+          </span>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- =========================================================
+       CONTENU PRINCIPAL DE LA PAGE (INCHANGÉ)
+       ========================================================= -->
+  <main>
+
+    <!-- SECTION 1 : MON PARCOURS -->
     <section id="parcours">
       <h2>1. Mon parcours</h2>
       <div class="carte">
@@ -49,3 +125,48 @@
         </div>
       </div>
     </section>
+
+    <!-- SECTION 2 : MES PROJETS (avec son sommaire interne) -->
+    <section id="projets">
+      <h2>2. Mes projets</h2>
+
+      <nav class="sommaire-projets" aria-label="Sommaire des projets">
+        <p class="sommaire-projets-titre">Accéder directement à un projet :</p>
+        <ul>
+          <li><a href="#projet-1">1. SAÉ drones</a></li>
+          <li><a href="#projet-2">2. Stage Ouvrier</a></li>
+          <li><a href="#projet-3">3. VALMEV</a></li>
+        </ul>
+      </nav>
+
+      <article id="projet-1" class="carte">
+        <h3>1. SAÉ drones</h3>
+        <p>Décrivez ici l'objectif de cette SAÉ, le travail réalisé sur les drones et les résultats obtenus.</p>
+        <a href="https://github.com/oeoeoepdf">Voir le projet sur GitHub →</a>
+      </article>
+
+      <article id="projet-2" class="carte">
+        <h3>2. Stage Ouvrier</h3>
+        <p>Présentez ici l'entreprise d'accueil, vos missions sur le terrain et ce que cette expérience vous a apporté.</p>
+        <a href="https://github.com/oeoeoepdf">En savoir plus →</a>
+      </article>
+
+      <article id="projet-3" class="carte">
+        <h3>3. Mini-jeu JavaScript</h3>
+        <p>Jeu de mémoire interactif développé uniquement en HTML, CSS et JavaScript pur.</p>
+        <a href="https://github.com/oeoeoepdf">Voir le code sur GitHub →</a>
+      </article>
+    </section>
+
+  </main>
+
+  <!-- =========================================================
+       PIED DE PAGE
+       ========================================================= -->
+  <footer id="contact">
+    <p>Contact : jules.tpns@gmail.com</p>
+    <p><a href="#accueil" class="retour-haut">↑ Remonter à la présentation</a></p>
+  </footer>
+
+</body>
+</html>
