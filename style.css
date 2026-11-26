@@ -1,259 +1,110 @@
-html {
-  scroll-behavior: smooth;
-}
-
-/* 1. Fond bleu nuit uni conservé sur tout le site */
-body {
-  margin: 0;
-  font-family: system-ui, -apple-system, sans-serif;
-  line-height: 1.6;
-  color: #f8fafc;
-  background-color: #0f172a;
-}
-
-/* 2. Première page : centrage de la grille dans tout l'écran */
-.hero {
-  min-height: 100vh;
+/* =========================================================
+   AXE TEMPOREL (FRISE CHRONOLOGIQUE)
+   ========================================================= */
+.frise-conteneur {
   width: 100%;
-  box-sizing: border-box;
-  padding: 2rem 1.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  overflow-x: auto; /* Permet de faire défiler horizontalement s'il y a beaucoup d'étapes */
+  padding: 2rem 0 1rem 0;
 }
 
-/* Conteneur à deux colonnes (Photo à gauche / Texte à droite) */
-.hero-grille {
+.frise-axe {
   display: flex;
-  align-items: center;
-  gap: 4rem;
-  max-width: 960px;
+  align-items: flex-end; /* Aligne tous les repères verticaux sur la même ligne */
+  position: relative;
+  min-width: max-content; /* S'adapte automatiquement au nombre d'étapes ajoutées */
   width: 100%;
+  gap: 1.25rem;
 }
 
-/* Cadre de la photo portrait */
-.hero-photo img {
-  width: 280px;
-  height: 360px;
-  object-fit: cover; /* Recadre la photo proprement sans jamais la déformer */
-  border-radius: 18px;
-  display: block;
-  background-color: #1e293b; /* Couleur d'attente tant que photo.jpg n'est pas ajoutée */
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+/* La ligne horizontale continue */
+.frise-axe::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 8px; /* S'arrête juste à la base de la flèche */
+  bottom: 11px;
+  transform: translateY(50%);
+  height: 3px;
+  background-color: #93c5fd;
+  border-radius: 2px;
 }
 
-/* Bloc de texte aligné à gauche */
-.hero-texte {
-  text-align: left;
+/* Chaque colonne d'étape (texte en haut + repère vertical en bas) */
+.frise-etape {
   flex: 1;
-}
-
-.sur-titre {
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: #94a3b8;
-  margin: 0 0 0.5rem 0;
-}
-
-.hero-texte h1 {
-  font-size: 3.5rem;
-  line-height: 1.1;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  color: #ffffff;
-  margin: 0 0 0.5rem 0;
-}
-
-.sous-titre {
-  font-size: 1.25rem;
-  color: #93c5fd;
-  font-weight: 500;
-  margin: 0 0 1.25rem 0;
-}
-
-.description-hero {
-  font-size: 1rem;
-  line-height: 1.65;
-  color: #cbd5e1;
-  max-width: 540px;
-  margin: 0 0 2rem 0;
-}
-
-/* Boutons en forme de pilule */
-.hero-boutons {
+  min-width: 190px;
+  max-width: 240px;
   display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-bottom: 2rem;
-}
-
-.btn-principal {
-  display: inline-block;
-  background-color: #ffffff;
-  color: #0f172a;
-  padding: 0.75rem 1.75rem;
-  border-radius: 9999px;
-  font-weight: 600;
-  font-size: 0.95rem;
-  text-decoration: none;
-  transition: transform 0.2s, background-color 0.2s;
-}
-
-.btn-principal:hover {
-  background-color: #e2e8f0;
-  transform: translateY(-2px);
-}
-
-.btn-secondaire {
-  display: inline-block;
-  background-color: transparent;
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  padding: 0.75rem 1.75rem;
-  border-radius: 9999px;
-  font-weight: 500;
-  font-size: 0.95rem;
-  text-decoration: none;
-  transition: transform 0.2s, border-color 0.2s, background-color 0.2s;
-}
-
-.btn-secondaire:hover {
-  border-color: #ffffff;
-  background-color: rgba(255, 255, 255, 0.08);
-  transform: translateY(-2px);
-}
-
-/* Ligne d'informations avec icônes en bas */
-.hero-infos {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  font-size: 0.85rem;
-  color: #94a3b8;
-}
-
-.info-item {
-  display: inline-flex;
+  flex-direction: column;
   align-items: center;
-  gap: 0.45rem;
 }
 
-/* Adaptation automatique sur smartphone */
-@media (max-width: 768px) {
-  .hero-grille {
-    flex-direction: column;
-    gap: 2rem;
-    text-align: center;
-  }
-
-  .hero-texte {
-    text-align: center;
-  }
-
-  .hero-texte h1 {
-    font-size: 2.5rem;
-  }
-
-  .hero-boutons,
-  .hero-infos {
-    justify-content: center;
-  }
-}
-
-/* 3. Contenu principal centré (Parcours & Projets) */
-main, footer {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
-}
-
-section {
-  margin-bottom: 3.5rem;
-  scroll-margin-top: 2rem;
-}
-
-/* Sommaire interne dans la section Mes Projets */
-.sommaire-projets {
-  background-color: rgba(255, 255, 255, 0.07);
+/* La zone de texte au-dessus de l'axe */
+.frise-texte {
+  background-color: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 8px;
-  padding: 1rem 1.25rem;
-  margin-bottom: 2rem;
+  padding: 0.85rem 1rem;
+  margin-bottom: 0.75rem;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: left;
+  transition: transform 0.2s, border-color 0.2s;
 }
 
-.sommaire-projets-titre {
-  margin: 0 0 0.75rem 0;
-  font-size: 0.95rem;
-  font-weight: 600;
+.frise-texte:hover {
+  transform: translateY(-3px);
+  border-color: #93c5fd;
+}
+
+.frise-date {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #93c5fd;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.25rem;
+}
+
+.frise-texte h4 {
+  margin: 0 0 0.35rem 0;
+  font-size: 1rem;
+  color: #ffffff;
+}
+
+.frise-texte p {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.45;
   color: #cbd5e1;
 }
 
-.sommaire-projets ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
+/* Le trait vertical qui coupe l'axe */
+.frise-repere {
+  width: 3px;
+  height: 22px;
+  background-color: #93c5fd;
+  border-radius: 2px;
+  position: relative;
+  z-index: 1;
 }
 
-.sommaire-projets a {
-  display: inline-block;
-  background-color: #2563eb;
-  color: #ffffff;
-  padding: 0.45rem 0.9rem;
-  border-radius: 6px;
-  font-size: 0.9rem;
-  font-weight: 500;
-  text-decoration: none;
-  transition: background-color 0.2s;
+/* La pointe de flèche à droite de l'axe */
+.frise-fleche {
+  width: 24px;
+  height: 22px;
+  position: relative;
+  flex-shrink: 0;
 }
 
-.sommaire-projets a:hover {
-  background-color: #1d4ed8;
-}
-
-/* Cartes blanches pour le parcours et chaque projet */
-.carte {
-  background-color: #ffffff;
-  color: #1f2937;
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
-  padding: 1.5rem;
-  margin-bottom: 1.5rem;
-  scroll-margin-top: 2rem;
-}
-
-.carte h3 {
-  margin-top: 0;
-}
-
-.carte a {
-  color: #2563eb;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-/* Pied de page */
-footer {
-  margin-top: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
-  color: #94a3b8;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.retour-haut {
-  color: #93c5fd;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.retour-haut:hover {
-  text-decoration: underline;
+.frise-fleche::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-left: 14px solid #93c5fd;
 }
