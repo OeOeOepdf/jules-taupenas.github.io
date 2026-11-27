@@ -253,10 +253,9 @@
   </footer>
 
   <!-- =========================================================
-       SCRIPTS : ONGLETS PROJETS + TRADUCTION FR / EN
+       SCRIPT 1 : CHANGEMENT DE PROJET AU CLIC
        ========================================================= -->
   <script>
-    // 1. Gestion des onglets de projets
     const boutonsProjets = document.querySelectorAll('.btn-projet');
     const fichesProjets = document.querySelectorAll('.projet-grand');
 
@@ -267,36 +266,104 @@
 
         bouton.classList.add('actif');
         const idCible = bouton.getAttribute('data-cible');
-        document.getElementById(idCible).classList.add('actif');
+        const ficheCible = document.getElementById(idCible);
+        if (ficheCible) {
+          ficheCible.classList.add('actif');
+        }
       });
     });
+  </script>
 
-    // 2. Dictionnaire de traduction Français / Anglais
-    const traductions = {
-      fr: {
-        nav_accueil: "Accueil",
-        nav_parcours: "Mon parcours",
-        nav_projets: "Mes projets",
-        nav_contact: "Contact",
-        hero_surtitre: "BONJOUR, JE SUIS",
-        hero_soustitre: "Étudiant • Sport Automobile • Passionné",
-        hero_desc: "Étudiant passionné par l'ingénierie, le numérique et le sport automobile. Je conçois des projets techniques alliant rigueur mécanique, électronique et développement web.",
-        hero_btn_parcours: "Mon parcours",
-        hero_btn_projets: "Voir mes projets",
-        hero_btn_contact: "Me contacter",
-        info_pays: "France",
-        info_dispo: "Disponible",
-        parcours_titre: "1. Mon parcours",
-        parcours_intro_titre: "Formation & Objectifs",
-        parcours_intro_texte: "Originaire de la région d'Avignon, j'ai obtenu mon bac général au lycée Saint-Joseph avec les spécialités mathématiques et sciences de l'ingénieur. Passionné depuis mon plus jeune âge par le sport automobile, me tourner vers une école d'ingénieurs était la suite logique de mon parcours. J'ai ainsi intégré l'INSA Hauts-de-France en cursus préparatoire en septembre 2024. C'est au cours de ces deux ans que mes projets les plus importants ont pris forme.",
-        etape1_titre: "Lycée",
-        etape1_desc: "Baccalauréat général - Mathématiques, Sciences de l'Ingénieur.",
-        etape2_titre: "Cycle préparatoire",
-        etape2_desc: "Découverte des fondamentaux pour l'ingénieur.",
-        etape3_titre: "Stage Ouvrier",
-        etape3_desc: "Immersion en milieu industriel et découverte du terrain.",
-        etape4_titre: "Formation actuelle",
-        etape4_desc: "Poursuite du cursus et projets d'ingénierie.",
-        parcours_comp_titre: "Ma passion pour l'ingénierie et le sport automobile",
-        parcours_comp_p1: "Au-delà des cours théoriques, je m'investis dans des projets concrets qui me permettent d'appliquer la mécanique, l'électronique et la conception sur le terrain.",
-        parcours_comp_p2: "Cette approche pratique nourrit mon objectif : concevoir des systèmes performants et fiables dans le domaine de l'
+  <!-- =========================================================
+       SCRIPT 2 : TRADUCTION FR / EN
+       ========================================================= -->
+  <script>
+    const traductionsEn = {
+      nav_accueil: `Home`,
+      nav_parcours: `Background`,
+      nav_projets: `Projects`,
+      nav_contact: `Contact`,
+      hero_surtitre: `HELLO, I AM`,
+      hero_soustitre: `Engineering Student • Motorsport • Enthusiast`,
+      hero_desc: `Engineering student passionate about technology, digital systems, and motorsport. I design technical projects combining mechanical rigor, electronics, and web development.`,
+      hero_btn_parcours: `My background`,
+      hero_btn_projets: `View my projects`,
+      hero_btn_contact: `Contact me`,
+      info_pays: `France`,
+      info_dispo: `Available`,
+      parcours_titre: `1. My Background`,
+      parcours_intro_titre: `Education & Goals`,
+      parcours_intro_texte: `Originally from the Avignon area, I earned my general baccalaureate at Saint-Joseph High School specializing in Mathematics and Engineering Sciences. Passionate about motorsport from an early age, pursuing an engineering degree was the natural next step. I joined INSA Hauts-de-France in the preparatory engineering program in September 2024, where my most significant projects took shape.`,
+      etape1_titre: `High School`,
+      etape1_desc: `General Baccalaureate - Mathematics & Engineering Sciences.`,
+      etape2_titre: `Preparatory Engineering Cycle`,
+      etape2_desc: `Core engineering fundamentals in mathematics, physics, and mechanics.`,
+      etape3_titre: `Shop-Floor Internship`,
+      etape3_desc: `Hands-on immersion in an industrial environment and field operations.`,
+      etape4_titre: `Current Studies`,
+      etape4_desc: `Continuing engineering curriculum and applied technical projects.`,
+      parcours_comp_titre: `My passion for engineering and motorsport`,
+      parcours_comp_p1: `Beyond theoretical coursework, I dedicate myself to hands-on projects that allow me to apply mechanics, electronics, and design in real-world conditions.`,
+      parcours_comp_p2: `This practical mindset drives my goal: designing high-performance, reliable systems in the automotive and mobility sectors.`,
+      projets_titre: `2. My Projects`,
+      projets_select_titre: `Select a project to view details:`,
+      btn_p1: `1. Drone Project (SAÉ)`,
+      btn_p2: `2. Industrial Internship`,
+      btn_p3: `3. VALMEV`,
+      p1_badge: `Academic Project • SAÉ`,
+      p1_titre: `1. Drone Engineering Project`,
+      p1_intro: `Describe the objective of this academic project, its technical context, and the engineering challenge you addressed.`,
+      p1_li1: `<strong>Objective:</strong> Design, programming, piloting, and flight data analysis of the drone.`,
+      p1_li2: `<strong>Tools & Skills:</strong> Specify the software, sensors, or programming languages used.`,
+      p1_li3: `<strong>Outcome:</strong> Key achievements and results validated during the final defense.`,
+      p1_lien: `View project on GitHub →`,
+      p2_badge: `Work Experience`,
+      p2_titre: `2. Industrial Shop-Floor Internship`,
+      p2_intro: `Introduce the host company, its industry sector, and your role within the operational team.`,
+      p2_li1: `<strong>Key responsibilities:</strong> Daily tasks carried out on the shop floor or in the workshop.`,
+      p2_li2: `<strong>Environment:</strong> Hands-on discovery of industrial processes, safety standards, and workflow organization.`,
+      p2_li3: `<strong>Takeaways:</strong> How this practical experience shaped your perspective as a future engineer.`,
+      p2_lien: `Learn more →`,
+      p3_badge: `Technical Project`,
+      p3_titre: `3. VALMEV`,
+      p3_intro: `Present the VALMEV project: its background, your personal contribution, and the technical challenges involved.`,
+      p3_li1: `<strong>Context:</strong> General overview of the VALMEV project.`,
+      p3_li2: `<strong>Execution:</strong> Technical milestones and engineering work carried out.`,
+      p3_li3: `<strong>Skills applied:</strong> Teamwork, precision, and specialized engineering tools.`,
+      p3_lien: `View project file →`,
+      footer_contact: `Contact: jules.tpns@gmail.com`,
+      footer_haut: `↑ Back to top`
+    };
+
+    // Mémorise automatiquement vos textes français directement depuis le HTML
+    document.querySelectorAll('[data-i18n]').forEach((element) => {
+      element.dataset.fr = element.innerHTML;
+    });
+
+    let langueActuelle = 'fr';
+    const btnLangue = document.getElementById('btn-langue');
+    const labelFr = document.getElementById('label-fr');
+    const labelEn = document.getElementById('label-en');
+
+    if (btnLangue) {
+      btnLangue.addEventListener('click', () => {
+        langueActuelle = langueActuelle === 'fr' ? 'en' : 'fr';
+        document.documentElement.lang = langueActuelle;
+
+        document.querySelectorAll('[data-i18n]').forEach((element) => {
+          const cle = element.getAttribute('data-i18n');
+          if (langueActuelle === 'en' && traductionsEn[cle]) {
+            element.innerHTML = traductionsEn[cle];
+          } else if (langueActuelle === 'fr' && element.dataset.fr) {
+            element.innerHTML = element.dataset.fr;
+          }
+        });
+
+        labelFr.classList.toggle('langue-active', langueActuelle === 'fr');
+        labelEn.classList.toggle('langue-active', langueActuelle === 'en');
+      });
+    }
+ </script>
+
+</body>
+</html>
