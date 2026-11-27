@@ -175,13 +175,15 @@ section {
   scroll-margin-top: 2rem;
 }
 
-/* Sommaire interne dans la section Mes Projets */
+/* =========================================================
+   MENU DE SÉLECTION ET FICHE PROJET EN GRAND
+   ========================================================= */
 .sommaire-projets {
   background-color: rgba(255, 255, 255, 0.07);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 8px;
+  border-radius: 10px;
   padding: 1rem 1.25rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .sommaire-projets-titre {
@@ -191,31 +193,112 @@ section {
   color: #cbd5e1;
 }
 
-.sommaire-projets ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+.liste-boutons-projets {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.6rem;
+  gap: 0.65rem;
 }
 
-.sommaire-projets a {
-  display: inline-block;
+/* Style des boutons du menu */
+.btn-projet {
   background-color: #2563eb;
   color: #ffffff;
-  padding: 0.45rem 0.9rem;
-  border-radius: 6px;
-  font-size: 0.9rem;
-  font-weight: 500;
-  text-decoration: none;
-  transition: background-color 0.2s;
+  border: 2px solid transparent;
+  padding: 0.55rem 1.1rem;
+  border-radius: 7px;
+  font-family: inherit;
+  font-size: 0.92rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s, transform 0.15s;
 }
 
-.sommaire-projets a:hover {
+.btn-projet:hover {
   background-color: #1d4ed8;
+  transform: translateY(-1px);
 }
 
+/* Apparence du bouton sélectionné (blanc lumineux pour bien le repérer) */
+.btn-projet.actif {
+  background-color: #ffffff;
+  color: #0f172a;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* Grande fiche projet (masquée par défaut) */
+.projet-grand {
+  display: none;
+  background-color: #ffffff;
+  color: #1f2937;
+  border-radius: 12px;
+  padding: 2.25rem;
+  min-height: 260px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+/* Uniquement la fiche active s'affiche, avec une transition douce */
+.projet-grand.actif {
+  display: block;
+  animation: apparition 0.3s ease;
+}
+
+@keyframes apparition {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.projet-badge {
+  display: inline-block;
+  background-color: #dbeafe;
+  color: #1d4ed8;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  margin-bottom: 0.75rem;
+}
+
+.projet-grand h3 {
+  font-size: 1.65rem;
+  margin: 0 0 1rem 0;
+  color: #0f172a;
+}
+
+.projet-intro {
+  font-size: 1.05rem;
+  color: #374151;
+  margin: 0 0 1.25rem 0;
+}
+
+.projet-details {
+  margin: 0 0 1.75rem 0;
+  padding-left: 1.25rem;
+  color: #4b5563;
+}
+
+.projet-details li {
+  margin-bottom: 0.5rem;
+}
+
+.projet-lien {
+  display: inline-block;
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.projet-lien:hover {
+  text-decoration: underline;
+}
 /* Cartes blanches pour le parcours et chaque projet */
 .carte {
   background-color: #ffffff;
