@@ -3,7 +3,7 @@ html {
 }
 
 /* =========================================================
-   1. FOND GLOBAL CRÈME CHAUD (INSPIRÉ DU PAPIER ÉDITORIAL)
+   1. FOND GLOBAL CRÈME CHAUD (PAPIER ÉDITORIAL)
    ========================================================= */
 body {
   margin: 0;
@@ -42,8 +42,8 @@ body {
   border-radius: 18px;
   display: block;
   background-color: #e6e3d3;
-  border: 2px solid #193488;
-  box-shadow: 10px 10px 0px rgba(25, 52, 136, 0.14);
+  border: 2px solid #2b4570;
+  box-shadow: 10px 10px 0px rgba(43, 69, 112, 0.14);
 }
 
 .hero-texte {
@@ -56,7 +56,7 @@ body {
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #193488;
+  color: #2b4570;
   margin: 0 0 0.5rem 0;
 }
 
@@ -73,7 +73,7 @@ body {
   font-size: 1.25rem;
   font-weight: 600;
   margin: 0 0 1.25rem 0;
-  color: #193488;
+  color: #2b4570;
 }
 
 .description-hero {
@@ -93,20 +93,20 @@ body {
 
 .btn-principal {
   display: inline-block;
-  background-color: #193488;
+  background-color: #2b4570;
   color: #ffffff;
   padding: 0.75rem 1.75rem;
   border-radius: 9999px;
   font-weight: 600;
   font-size: 0.95rem;
   text-decoration: none;
-  box-shadow: 0 4px 14px rgba(25, 52, 136, 0.28);
+  box-shadow: 0 4px 14px rgba(43, 69, 112, 0.25);
   transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
 }
 
 .btn-principal:hover {
-  background-color: #122666;
-  box-shadow: 0 6px 18px rgba(25, 52, 136, 0.36);
+  background-color: #213659;
+  box-shadow: 0 6px 18px rgba(43, 69, 112, 0.34);
   transform: translateY(-1px);
 }
 
@@ -124,8 +124,8 @@ body {
 }
 
 .btn-secondaire:hover {
-  border-color: #193488;
-  color: #193488;
+  border-color: #2b4570;
+  color: #2b4570;
   transform: translateY(-1px);
 }
 
@@ -145,7 +145,7 @@ body {
 }
 
 .info-item svg {
-  color: #193488;
+  color: #2b4570;
 }
 
 @media (max-width: 768px) {
@@ -170,7 +170,7 @@ body {
 }
 
 /* =========================================================
-   3. SECTIONS PLEINE LARGEUR & SÉPARATION BLEU COBALT
+   3. SECTIONS PLEINE LARGEUR & SÉPARATION BLEU ARDOISE
    ========================================================= */
 main {
   width: 100%;
@@ -192,12 +192,15 @@ section h2 {
   letter-spacing: -0.02em;
   color: #1c1c1e;
   margin-top: 0;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.75rem;
 }
 
+/* Section Parcours en bleu ardoise doux */
 #parcours {
-  background-color: #193488;
+  background-color: #2b4570;
   color: #ffffff;
+  border-top: 1px solid rgba(43, 69, 112, 0.15);
+  border-bottom: 1px solid rgba(43, 69, 112, 0.15);
   margin-bottom: 3rem;
 }
 
@@ -205,6 +208,33 @@ section h2 {
   color: #ffffff;
 }
 
+/* Suppression de la grande case blanche dans la section Parcours */
+#parcours .carte {
+  background-color: transparent;
+  color: #ffffff;
+  border: none;
+  border-left: 3px solid rgba(255, 255, 255, 0.45);
+  border-radius: 0;
+  padding: 0.25rem 0 0.25rem 1.35rem;
+  margin-bottom: 3rem;
+  box-shadow: none;
+}
+
+#parcours .carte h3 {
+  margin-top: 0;
+  margin-bottom: 0.6rem;
+  color: #ffffff;
+  font-size: 1.3rem;
+}
+
+#parcours .carte p {
+  color: #e2e8f5;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: 0;
+}
+
+/* Style générique des cartes si utilisées ailleurs */
 .carte {
   background-color: #ffffff;
   color: #1c1c1e;
@@ -212,22 +242,11 @@ section h2 {
   border-radius: 16px;
   padding: 1.75rem;
   margin-bottom: 1.5rem;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-}
-
-.carte h3 {
-  margin-top: 0;
-  color: #1c1c1e;
-  font-size: 1.25rem;
-}
-
-.carte p {
-  color: #3a3a3c;
-  margin-bottom: 0;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
 }
 
 .carte a {
-  color: #193488;
+  color: #2b4570;
   text-decoration: none;
   font-weight: 600;
 }
@@ -272,15 +291,15 @@ section h2 {
 
 .btn-projet:hover {
   background-color: #ebe8d8;
-  border-color: #193488;
+  border-color: #2b4570;
 }
 
 .btn-projet.actif {
-  background-color: #193488;
+  background-color: #2b4570;
   color: #ffffff;
-  border-color: #193488;
+  border-color: #2b4570;
   font-weight: 600;
-  box-shadow: 0 4px 12px rgba(25, 52, 136, 0.28);
+  box-shadow: 0 4px 12px rgba(43, 69, 112, 0.25);
 }
 
 .projet-grand {
@@ -288,7 +307,7 @@ section h2 {
   background-color: #ffffff;
   color: #1c1c1e;
   border: 1px solid #e2dfd2;
-  border-top: 5px solid #193488;
+  border-top: 5px solid #2b4570;
   border-radius: 18px;
   padding: 2.5rem;
   min-height: 260px;
@@ -313,8 +332,8 @@ section h2 {
 
 .projet-badge {
   display: inline-block;
-  background-color: rgba(25, 52, 136, 0.1);
-  color: #193488;
+  background-color: rgba(43, 69, 112, 0.1);
+  color: #2b4570;
   font-size: 0.78rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -353,7 +372,7 @@ section h2 {
 
 .projet-lien {
   display: inline-block;
-  color: #193488;
+  color: #2b4570;
   text-decoration: none;
   font-weight: 700;
   font-size: 1rem;
@@ -364,13 +383,13 @@ section h2 {
 }
 
 /* =========================================================
-   5. AXE TEMPOREL EN SERPENTIN (TRACÉ BLANC SUR BLEU COBALT)
+   5. AXE TEMPOREL EN SERPENTIN (TEXTE DIRECT SUR LE BLEU)
    ========================================================= */
 .frise-serpentin {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-auto-flow: dense;
-  row-gap: 2.25rem;
+  row-gap: 2.5rem;
   margin: 2.5rem 48px 1rem 48px;
 }
 
@@ -387,45 +406,45 @@ section h2 {
   align-items: center;
 }
 
+/* Suppression des cases blanches : texte affiché directement au-dessus de l'axe */
 .etape-texte {
   width: calc(100% - 1.5rem);
   box-sizing: border-box;
-  background-color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 14px;
-  padding: 1rem 1.15rem;
-  margin-bottom: 0.65rem;
+  background-color: transparent;
+  border: none;
+  padding: 0.25rem 0.5rem;
+  margin-bottom: 0.75rem;
   text-align: left;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.16);
-  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: none;
+  transition: transform 0.2s;
 }
 
 .etape-texte:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.24);
+  transform: translateY(-2px);
 }
 
 .etape-date {
   display: inline-block;
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   font-weight: 700;
-  color: #193488;
+  color: #bfd1f2;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 0.2rem;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.25rem;
 }
 
 .etape-texte h4 {
-  margin: 0 0 0.3rem 0;
-  font-size: 1rem;
-  color: #1c1c1e;
+  margin: 0 0 0.35rem 0;
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: #ffffff;
 }
 
 .etape-texte p {
   margin: 0;
-  font-size: 0.85rem;
-  line-height: 1.45;
-  color: #525256;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #dce4f5;
 }
 
 .etape-axe {
@@ -466,7 +485,7 @@ section h2 {
   position: absolute;
   left: -45px;
   width: 45px;
-  top: calc(-2.25rem - 13.5px);
+  top: calc(-2.5rem - 13.5px);
   bottom: 10.5px;
   border: 3px solid #ffffff;
   border-right: none;
@@ -478,7 +497,7 @@ section h2 {
   position: absolute;
   right: -45px;
   width: 45px;
-  top: calc(-2.25rem - 13.5px);
+  top: calc(-2.5rem - 13.5px);
   bottom: 10.5px;
   border: 3px solid #ffffff;
   border-left: none;
@@ -536,7 +555,7 @@ section h2 {
 
   .etape-texte {
     width: calc(100% - 0.6rem);
-    padding: 0.75rem 0.85rem;
+    padding: 0.25rem;
   }
 }
 
@@ -557,7 +576,7 @@ footer {
 }
 
 .retour-haut {
-  color: #193488;
+  color: #2b4570;
   text-decoration: none;
   font-weight: 600;
 }
