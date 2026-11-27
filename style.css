@@ -3,7 +3,7 @@ html {
 }
 
 /* =========================================================
-   1. FOND GLOBAL GRIS PERLE 
+   1. FOND GLOBAL GRIS PERLE (STYLE APPLE)
    ========================================================= */
 body {
   margin: 0;
@@ -11,7 +11,7 @@ body {
   line-height: 1.6;
   color: #1d1d1f;
   background-color: #f5f5f7;
-  -webkit-font-smoothing: antialiased; /* Rend les lettres plus nettes sur Mac et iPhone */
+  -webkit-font-smoothing: antialiased;
 }
 
 /* =========================================================
@@ -69,12 +69,11 @@ body {
   margin: 0 0 0.5rem 0;
 }
 
-/* Sous-titre avec dégradé de couleur subtil */
 .sous-titre {
   font-size: 1.25rem;
   font-weight: 600;
   margin: 0 0 1.25rem 0;
-  color: #0071e3; /* Couleur de secours */
+  color: #0071e3;
   background: linear-gradient(90deg, #0071e3 0%, #5856d6 55%, #af52de 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -88,7 +87,6 @@ body {
   margin: 0 0 2rem 0;
 }
 
-/* Boutons pilules inspirés des appels à l'action Apple */
 .hero-boutons {
   display: flex;
   flex-wrap: wrap;
@@ -134,7 +132,6 @@ body {
   transform: translateY(-1px);
 }
 
-/* Informations rapides avec icônes colorées */
 .hero-infos {
   display: flex;
   flex-wrap: wrap;
@@ -200,7 +197,6 @@ section h2 {
   margin-bottom: 1.5rem;
 }
 
-/* Cartes blanches sur fond gris perle */
 .carte {
   background-color: #ffffff;
   color: #1d1d1f;
@@ -252,7 +248,6 @@ section h2 {
   align-items: center;
 }
 
-/* Blocs d'étapes en blanc pur avec ombre douce */
 .etape-texte {
   width: calc(100% - 1.5rem);
   box-sizing: border-box;
@@ -295,7 +290,6 @@ section h2 {
   color: #6e6e73;
 }
 
-/* Tracé bleu Apple de l'axe chronologique */
 .etape-axe {
   position: relative;
   width: 100%;
@@ -361,3 +355,203 @@ section h2 {
 .etape:last-child:nth-child(4n + 3) .etape-axe::after,
 .etape:last-child:nth-child(4n + 4) .etape-axe::after {
   content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-left: 14px solid #0071e3;
+}
+
+.etape:last-child:nth-child(4n + 2) .etape-axe::before,
+.etape:last-child:nth-child(4n + 5) .etape-axe::before {
+  left: 12px;
+}
+
+.etape:last-child:nth-child(4n + 2) .etape-axe::after,
+.etape:last-child:nth-child(4n + 5) .etape-axe::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-right: 14px solid #0071e3;
+}
+
+@media (max-width: 650px) {
+  .frise-serpentin {
+    margin: 2rem 24px;
+  }
+
+  .etape:nth-child(4n + 3)::after {
+    left: -22px;
+    width: 22px;
+  }
+
+  .etape:nth-child(4n + 5)::after {
+    right: -22px;
+    width: 22px;
+  }
+
+  .etape-texte {
+    width: calc(100% - 0.6rem);
+    padding: 0.75rem 0.85rem;
+  }
+}
+
+/* =========================================================
+   5. MENU DE SÉLECTION ET FICHE PROJET EN GRAND
+   ========================================================= */
+.sommaire-projets {
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 16px;
+  padding: 1.15rem 1.35rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.sommaire-projets-titre {
+  margin: 0 0 0.75rem 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #6e6e73;
+}
+
+.liste-boutons-projets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.btn-projet {
+  background-color: #f5f5f7;
+  color: #1d1d1f;
+  border: 1px solid #d2d2d7;
+  padding: 0.55rem 1.15rem;
+  border-radius: 9999px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, transform 0.15s;
+}
+
+.btn-projet:hover {
+  background-color: #e8e8ed;
+  border-color: #b8b8bd;
+}
+
+.btn-projet.actif {
+  background-color: #0071e3;
+  color: #ffffff;
+  border-color: #0071e3;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0, 113, 227, 0.28);
+}
+
+.projet-grand {
+  display: none;
+  background-color: #ffffff;
+  color: #1d1d1f;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 20px;
+  padding: 2.5rem;
+  min-height: 260px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
+}
+
+.projet-grand.actif {
+  display: block;
+  animation: apparition 0.3s ease;
+}
+
+@keyframes apparition {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.projet-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, rgba(0, 113, 227, 0.12), rgba(175, 82, 222, 0.12));
+  color: #0071e3;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  margin-bottom: 0.85rem;
+}
+
+.projet-grand h3 {
+  font-size: 1.75rem;
+  letter-spacing: -0.02em;
+  margin: 0 0 1rem 0;
+  color: #1d1d1f;
+}
+
+.projet-intro {
+  font-size: 1.05rem;
+  color: #424245;
+  margin: 0 0 1.35rem 0;
+}
+
+.projet-details {
+  margin: 0 0 1.85rem 0;
+  padding-left: 1.25rem;
+  color: #424245;
+}
+
+.projet-details li {
+  margin-bottom: 0.55rem;
+}
+
+.projet-details strong {
+  color: #1d1d1f;
+}
+
+.projet-lien {
+  display: inline-block;
+  color: #0071e3;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.projet-lien:hover {
+  text-decoration: underline;
+}
+
+/* =========================================================
+   6. PIED DE PAGE
+   ========================================================= */
+footer {
+  margin-top: 2rem;
+  border-top: 1px solid #d2d2d7;
+  color: #6e6e73;
+  font-size: 0.9rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.retour-haut {
+  color: #0071e3;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.retour-haut:hover {
+  text-decoration: underline;
+}
