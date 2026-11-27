@@ -3,14 +3,14 @@ html {
 }
 
 /* =========================================================
-   1. FOND GLOBAL BLANC CASSÉ (STYLE APPLE)
+   1. FOND GLOBAL CRÈME CHAUD (INSPIRÉ DU PAPIER ÉDITORIAL)
    ========================================================= */
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
   line-height: 1.6;
-  color: #1d1d1f;
-  background-color: #fbfbfd;
+  color: #1c1c1e;
+  background-color: #f5f3e7;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -39,11 +39,11 @@ body {
   width: 280px;
   height: 360px;
   object-fit: cover;
-  border-radius: 22px;
+  border-radius: 18px;
   display: block;
-  background-color: #e8eae6;
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.07);
+  background-color: #e6e3d3;
+  border: 2px solid #193488;
+  box-shadow: 10px 10px 0px rgba(25, 52, 136, 0.14);
 }
 
 .hero-texte {
@@ -53,39 +53,38 @@ body {
 
 .sur-titre {
   font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
+  font-weight: 700;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #6e6e73;
+  color: #193488;
   margin: 0 0 0.5rem 0;
 }
 
 .hero-texte h1 {
   font-size: 3.5rem;
   line-height: 1.08;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: -0.025em;
-  color: #1d1d1f;
+  color: #1c1c1e;
   margin: 0 0 0.5rem 0;
 }
 
-/* Sous-titre en vert olive */
 .sous-titre {
   font-size: 1.25rem;
   font-weight: 600;
   margin: 0 0 1.25rem 0;
-  color: #647c5d;
+  color: #193488;
 }
 
 .description-hero {
   font-size: 1.05rem;
   line-height: 1.65;
-  color: #424245;
+  color: #3a3a3c;
   max-width: 540px;
   margin: 0 0 2rem 0;
 }
 
-/* Boutons pilules */
+/* Boutons pilules bleu cobalt et blanc */
 .hero-boutons {
   display: flex;
   flex-wrap: wrap;
@@ -95,49 +94,50 @@ body {
 
 .btn-principal {
   display: inline-block;
-  background-color: #7a9272;
+  background-color: #193488;
   color: #ffffff;
   padding: 0.75rem 1.75rem;
   border-radius: 9999px;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 0.95rem;
   text-decoration: none;
-  box-shadow: 0 4px 14px rgba(122, 146, 114, 0.3);
+  box-shadow: 0 4px 14px rgba(25, 52, 136, 0.28);
   transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
 }
 
 .btn-principal:hover {
-  background-color: #688060;
-  box-shadow: 0 6px 18px rgba(122, 146, 114, 0.38);
+  background-color: #122666;
+  box-shadow: 0 6px 18px rgba(25, 52, 136, 0.36);
   transform: translateY(-1px);
 }
 
 .btn-secondaire {
   display: inline-block;
   background-color: #ffffff;
-  color: #1d1d1f;
-  border: 1px solid #d2d2d7;
+  color: #1c1c1e;
+  border: 1px solid #d5d2c3;
   padding: 0.75rem 1.75rem;
   border-radius: 9999px;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 0.95rem;
   text-decoration: none;
   transition: transform 0.2s, border-color 0.2s, color 0.2s;
 }
 
 .btn-secondaire:hover {
-  border-color: #7a9272;
-  color: #5c7455;
+  border-color: #193488;
+  color: #193488;
   transform: translateY(-1px);
 }
 
-/* Informations rapides avec icônes vert olive */
+/* Informations rapides avec icônes bleu cobalt */
 .hero-infos {
   display: flex;
   flex-wrap: wrap;
   gap: 1.5rem;
   font-size: 0.88rem;
-  color: #6e6e73;
+  color: #525256;
+  font-weight: 500;
 }
 
 .info-item {
@@ -147,7 +147,7 @@ body {
 }
 
 .info-item svg {
-  color: #7a9272;
+  color: #193488;
 }
 
 @media (max-width: 768px) {
@@ -172,13 +172,12 @@ body {
 }
 
 /* =========================================================
-   3. SECTIONS PLEINE LARGEUR & SÉPARATION VISUELLE
+   3. SECTIONS PLEINE LARGEUR & SÉPARATION BLEU COBALT
    ========================================================= */
 main {
   width: 100%;
 }
 
-/* Chaque section occupe 100 % de la largeur tout en centrant son contenu sur 820px */
 section {
   min-height: 100vh;
   width: 100%;
@@ -189,53 +188,56 @@ section {
   scroll-margin-top: 0;
 }
 
-/* Fond gris très léger uniquement sur la section Parcours pour la distinguer */
-#parcours {
-  background-color: #B4C3B0;
-  border-top: 1px solid #e5e5ea;
-  border-bottom: 1px solid #e5e5ea;
-  margin-bottom: 3rem;
-}
-
 section h2 {
   font-size: 2.1rem;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: -0.02em;
-  color: #1d1d1f;
+  color: #1c1c1e;
   margin-top: 0;
   margin-bottom: 1.5rem;
 }
 
-/* Cartes blanches */
+/* Section Parcours en bleu cobalt plein (comme "OUR VISION" sur l'image) */
+#parcours {
+  background-color: #193488;
+  color: #ffffff;
+  margin-bottom: 3rem;
+}
+
+#parcours h2 {
+  color: #ffffff;
+}
+
+/* Cartes blanches contrastées */
 .carte {
   background-color: #ffffff;
-  color: #1d1d1f;
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  border-radius: 18px;
+  color: #1c1c1e;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 16px;
   padding: 1.75rem;
   margin-bottom: 1.5rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
 
 .carte h3 {
   margin-top: 0;
-  color: #1d1d1f;
+  color: #1c1c1e;
   font-size: 1.25rem;
 }
 
 .carte p {
-  color: #424245;
+  color: #3a3a3c;
   margin-bottom: 0;
 }
 
 .carte a {
-  color: #5c7455;
+  color: #193488;
   text-decoration: none;
   font-weight: 600;
 }
 
 /* =========================================================
-   4. AXE TEMPOREL EN SERPENTIN (SECTION MON PARCOURS)
+   4. AXE TEMPOREL EN SERPENTIN (TRACÉ BLANC SUR BLEU COBALT)
    ========================================================= */
 .frise-serpentin {
   display: grid;
@@ -262,26 +264,25 @@ section h2 {
   width: calc(100% - 1.5rem);
   box-sizing: border-box;
   background-color: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 14px;
   padding: 1rem 1.15rem;
   margin-bottom: 0.65rem;
   text-align: left;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
-  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.16);
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .etape-texte:hover {
   transform: translateY(-3px);
-  border-color: #7a9272;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.07);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.24);
 }
 
 .etape-date {
   display: inline-block;
   font-size: 0.75rem;
   font-weight: 700;
-  color: #5c7455;
+  color: #193488;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin-bottom: 0.2rem;
@@ -290,17 +291,17 @@ section h2 {
 .etape-texte h4 {
   margin: 0 0 0.3rem 0;
   font-size: 1rem;
-  color: #1d1d1f;
+  color: #1c1c1e;
 }
 
 .etape-texte p {
   margin: 0;
   font-size: 0.85rem;
   line-height: 1.45;
-  color: #6e6e73;
+  color: #525256;
 }
 
-/* Tracé vert olive de l'axe chronologique */
+/* Tracé blanc pur de l'axe chronologique */
 .etape-axe {
   position: relative;
   width: 100%;
@@ -315,7 +316,7 @@ section h2 {
   left: 0;
   right: 0;
   height: 3px;
-  background-color: #7a9272;
+  background-color: #ffffff;
 }
 
 .etape-repere {
@@ -325,7 +326,7 @@ section h2 {
   transform: translateX(-50%);
   width: 3px;
   height: 24px;
-  background-color: #7a9272;
+  background-color: #ffffff;
   border-radius: 2px;
   z-index: 1;
 }
@@ -341,7 +342,7 @@ section h2 {
   width: 45px;
   top: calc(-2.25rem - 13.5px);
   bottom: 10.5px;
-  border: 3px solid #7a9272;
+  border: 3px solid #ffffff;
   border-right: none;
   border-radius: 999px 0 0 999px;
 }
@@ -353,7 +354,7 @@ section h2 {
   width: 45px;
   top: calc(-2.25rem - 13.5px);
   bottom: 10.5px;
-  border: 3px solid #7a9272;
+  border: 3px solid #ffffff;
   border-left: none;
   border-radius: 0 999px 999px 0;
 }
@@ -365,142 +366,3 @@ section h2 {
 
 .etape:last-child:nth-child(4n + 3) .etape-axe::after,
 .etape:last-child:nth-child(4n + 4) .etape-axe::after {
-  content: "";
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  border-top: 8px solid transparent;
-  border-bottom: 8px solid transparent;
-  border-left: 14px solid #7a9272;
-}
-
-.etape:last-child:nth-child(4n + 2) .etape-axe::before,
-.etape:last-child:nth-child(4n + 5) .etape-axe::before {
-  left: 12px;
-}
-
-.etape:last-child:nth-child(4n + 2) .etape-axe::after,
-.etape:last-child:nth-child(4n + 5) .etape-axe::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  border-top: 8px solid transparent;
-  border-bottom: 8px solid transparent;
-  border-right: 14px solid #7a9272;
-}
-
-@media (max-width: 650px) {
-  .frise-serpentin {
-    margin: 2rem 24px 1rem 24px;
-  }
-
-  .etape:nth-child(4n + 3)::after {
-    left: -22px;
-    width: 22px;
-  }
-
-  .etape:nth-child(4n + 5)::after {
-    right: -22px;
-    width: 22px;
-  }
-
-  .etape-texte {
-    width: calc(100% - 0.6rem);
-    padding: 0.75rem 0.85rem;
-  }
-}
-
-/* =========================================================
-   5. MENU DE SÉLECTION ET FICHE PROJET EN GRAND
-   ========================================================= */
-.sommaire-projets {
-  background-color: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  border-radius: 16px;
-  padding: 1.15rem 1.35rem;
-  margin-bottom: 1.5rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-}
-
-.sommaire-projets-titre {
-  margin: 0 0 0.75rem 0;
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: #6e6e73;
-}
-
-.liste-boutons-projets {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.65rem;
-}
-
-.btn-projet {
-  background-color: #f4f5f4;
-  color: #1d1d1f;
-  border: 1px solid #d2d4d0;
-  padding: 0.55rem 1.15rem;
-  border-radius: 9999px;
-  font-family: inherit;
-  font-size: 0.9rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s, transform 0.15s;
-}
-
-.btn-projet:hover {
-  background-color: #e6e9e5;
-  border-color: #7a9272;
-}
-
-/* Bouton sélectionné en vert olive */
-.btn-projet.actif {
-  background-color: #7a9272;
-  color: #ffffff;
-  border-color: #7a9272;
-  font-weight: 600;
-  box-shadow: 0 4px 12px rgba(122, 146, 114, 0.3);
-}
-
-.projet-grand {
-  display: none;
-  background-color: #ffffff;
-  color: #1d1d1f;
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  border-radius: 20px;
-  padding: 2.5rem;
-  min-height: 260px;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.05);
-}
-
-.projet-grand.actif {
-  display: block;
-  animation: apparition 0.3s ease;
-}
-
-@keyframes apparition {
-  from {
-    opacity: 0;
-    transform: translateY(6px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Badge pastel vert olive */
-.projet-badge {
-  display: inline-block;
-  background-color: rgba(122, 146, 114, 0.15);
-  color: #556c4e;
-  font-size: 0.78rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  padding: 0.3rem 0.8rem;
-  border-radius: 999px;
-  margin-bottom: 0.85rem
