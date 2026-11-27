@@ -15,16 +15,119 @@ body {
 }
 
 /* =========================================================
-   2. PREMIÈRE PAGE : PRÉSENTATION EN DEUX COLONNES
+   2. BANDEAU DE NAVIGATION FIXE EN HAUT (STICKY)
+   ========================================================= */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  background-color: rgba(245, 243, 231, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid #e2dfd2;
+}
+
+.navbar-contenu {
+  max-width: 1040px;
+  margin: 0 auto;
+  height: 64px;
+  padding: 0 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.navbar-nom {
+  font-weight: 700;
+  font-size: 1rem;
+  color: #1c1c1e;
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.navbar-liens {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+}
+
+.navbar-liens a {
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #525256;
+  transition: color 0.2s;
+}
+
+.navbar-liens a:hover {
+  color: #2b4570;
+}
+
+/* Pilule de langue FR / EN à droite */
+.btn-langue {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background-color: #ffffff;
+  border: 1px solid #d5d2c3;
+  border-radius: 9999px;
+  padding: 0.35rem 0.85rem;
+  font-family: inherit;
+  font-size: 0.78rem;
+  color: #8e8e93;
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.btn-langue:hover {
+  border-color: #2b4570;
+  box-shadow: 0 2px 8px rgba(43, 69, 112, 0.12);
+}
+
+.btn-langue .langue-active {
+  font-weight: 800;
+  color: #1c1c1e;
+}
+
+.langue-separateur {
+  color: #c7c7cc;
+}
+
+@media (max-width: 650px) {
+  .navbar-contenu {
+    height: auto;
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+  }
+
+  .navbar-liens {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    gap: 1.15rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid #e2dfd2;
+  }
+}
+
+/* =========================================================
+   3. PREMIÈRE PAGE : PRÉSENTATION EN DEUX COLONNES
    ========================================================= */
 .hero {
-  min-height: 100vh;
+  min-height: calc(100vh - 64px);
   width: 100%;
   box-sizing: border-box;
   padding: 2rem 1.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  scroll-margin-top: 64px;
 }
 
 .hero-grille {
@@ -184,7 +287,7 @@ body {
 }
 
 /* =========================================================
-   3. SECTIONS PLEINE LARGEUR & SÉPARATION BLEU ARDOISE
+   4. SECTIONS PLEINE LARGEUR & SÉPARATION BLEU ARDOISE
    ========================================================= */
 main {
   width: 100%;
@@ -197,7 +300,7 @@ section {
   padding-top: 4.5rem;
   padding-bottom: 5rem;
   padding-inline: max(1.25rem, calc((100% - 820px) / 2));
-  scroll-margin-top: 0;
+  scroll-margin-top: 64px;
 }
 
 section h2 {
@@ -263,7 +366,7 @@ section h2 {
 }
 
 /* =========================================================
-   4. MENU DE SÉLECTION ET FICHE PROJET EN GRAND
+   5. MENU DE SÉLECTION ET FICHE PROJET EN GRAND
    ========================================================= */
 .sommaire-projets {
   background-color: #ffffff;
@@ -394,7 +497,7 @@ section h2 {
 }
 
 /* =========================================================
-   5. AXE TEMPOREL EN SERPENTIN (TRACÉ AMBRE DORÉ #f0b45b)
+   6. AXE TEMPOREL EN SERPENTIN (TRACÉ AMBRE DORÉ #f0b45b)
    ========================================================= */
 .frise-serpentin {
   display: grid;
@@ -463,7 +566,6 @@ section h2 {
   height: 24px;
 }
 
-/* Ligne horizontale colorée */
 .etape-axe::before {
   content: "";
   position: absolute;
@@ -475,7 +577,6 @@ section h2 {
   background-color: #f0b45b;
 }
 
-/* Repères verticaux colorés */
 .etape-repere {
   position: absolute;
   left: 50%;
@@ -492,7 +593,6 @@ section h2 {
   right: 18%;
 }
 
-/* Virage en U à gauche coloré */
 .etape:nth-child(4n + 3)::after {
   content: "";
   position: absolute;
@@ -505,7 +605,6 @@ section h2 {
   border-radius: 999px 0 0 999px;
 }
 
-/* Virage en U à droite coloré */
 .etape:nth-child(4n + 5)::after {
   content: "";
   position: absolute;
@@ -518,7 +617,6 @@ section h2 {
   border-radius: 0 999px 999px 0;
 }
 
-/* Pointe de flèche finale vers la droite colorée */
 .etape:last-child:nth-child(4n + 3) .etape-axe::before,
 .etape:last-child:nth-child(4n + 4) .etape-axe::before {
   right: 12px;
@@ -536,7 +634,6 @@ section h2 {
   border-left: 14px solid #f0b45b;
 }
 
-/* Pointe de flèche finale vers la gauche colorée */
 .etape:last-child:nth-child(4n + 2) .etape-axe::before,
 .etape:last-child:nth-child(4n + 5) .etape-axe::before {
   left: 12px;
@@ -576,7 +673,7 @@ section h2 {
 }
 
 /* =========================================================
-   6. ZONE COMPLÉMENTAIRE SOUS LA FRISÉ (TEXTE + PHOTO)
+   7. ZONE COMPLÉMENTAIRE SOUS LA FRISE (TEXTE + PHOTO)
    ========================================================= */
 .parcours-complement {
   display: flex;
@@ -625,7 +722,7 @@ section h2 {
 }
 
 /* =========================================================
-   7. PIED DE PAGE
+   8. PIED DE PAGE
    ========================================================= */
 footer {
   max-width: 820px;
