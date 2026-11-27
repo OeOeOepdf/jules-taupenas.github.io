@@ -125,36 +125,65 @@
         </div>
       </div>
     </section>
-       <!-- SECTION 2 : MES PROJETS (avec son sommaire interne) -->
+       <!-- SECTION 2 : MES PROJETS (AFFICHAGE EN GRAND PAR ONGLETS) -->
     <section id="projets">
       <h2>2. Mes projets</h2>
 
-      <nav class="sommaire-projets" aria-label="Sommaire des projets">
-        <p class="sommaire-projets-titre">Accéder directement à un projet :</p>
-        <ul>
-          <li><a href="#projet-1">1. SAÉ drones</a></li>
-          <li><a href="#projet-2">2. Stage Ouvrier</a></li>
-          <li><a href="#projet-3">3. VALMEV</a></li>
-        </ul>
-      </nav>
+      <!-- Barre de sélection des projets -->
+      <div class="sommaire-projets" role="tablist" aria-label="Choisir un projet">
+        <p class="sommaire-projets-titre">Sélectionnez un projet pour l'afficher en détail :</p>
+        <div class="liste-boutons-projets">
+          <button type="button" class="btn-projet actif" data-cible="projet-1">1. SAÉ drones</button>
+          <button type="button" class="btn-projet" data-cible="projet-2">2. Stage Ouvrier</button>
+          <button type="button" class="btn-projet" data-cible="projet-3">3. VALMEV</button>
+        </div>
+      </div>
 
-      <article id="projet-1" class="carte">
+      <!-- PROJET 1 (Affiché par défaut grâce à la classe "actif") -->
+      <article id="projet-1" class="projet-grand actif">
+        <span class="projet-badge">Projet Académique • SAÉ</span>
         <h3>1. SAÉ drones</h3>
-        <p>Décrivez ici l'objectif de cette SAÉ, le travail réalisé sur les drones et les résultats obtenus.</p>
-        <a href="https://github.com/oeoeoepdf">Voir le projet sur GitHub →</a>
+        <p class="projet-intro">
+          Décrivez ici en détail l'objectif de cette SAÉ, le contexte technique et le problème auquel vous deviez répondre.
+        </p>
+        <ul class="projet-details">
+          <li><strong>Objectif :</strong> Conception, programmation ou pilotage / analyse de données du drone.</li>
+          <li><strong>Outils & Compétences :</strong> Précisez les logiciels, capteurs ou langages utilisés.</li>
+          <li><strong>Résultat :</strong> Ce que vous avez accompli ou validé lors de la soutenance.</li>
+        </ul>
+        <a href="https://github.com/oeoeoepdf" class="projet-lien">Voir le projet sur GitHub →</a>
       </article>
 
-      <article id="projet-2" class="carte">
+      <!-- PROJET 2 (Masqué tant qu'on ne clique pas sur son bouton) -->
+      <article id="projet-2" class="projet-grand">
+        <span class="projet-badge">Expérience Professionnelle</span>
         <h3>2. Stage Ouvrier</h3>
-        <p>Présentez ici l'entreprise d'accueil, vos missions sur le terrain et ce que cette expérience vous a apporté.</p>
-        <a href="https://github.com/oeoeoepdf">En savoir plus →</a>
+        <p class="projet-intro">
+          Présentez ici l'entreprise qui vous a accueilli, son secteur d'activité et votre rôle au sein de l'équipe.
+        </p>
+        <ul class="projet-details">
+          <li><strong>Missions principales :</strong> Vos tâches quotidiennes sur le terrain ou en atelier.</li>
+          <li><strong>Environnement :</strong> Découverte des processus industriels, sécurité et organisation.</li>
+          <li><strong>Bilan :</strong> Ce que cette expérience concrète vous a apporté pour la suite de vos études.</li>
+        </ul>
+        <a href="https://github.com/oeoeoepdf" class="projet-lien">En savoir plus →</a>
       </article>
 
-      <article id="projet-3" class="carte">
-        <h3>3. Mini-jeu JavaScript</h3>
-        <p>Jeu de mémoire interactif développé uniquement en HTML, CSS et JavaScript pur.</p>
-        <a href="https://github.com/oeoeoepdf">Voir le code sur GitHub →</a>
+      <!-- PROJET 3 : VALMEV -->
+      <article id="projet-3" class="projet-grand">
+        <span class="projet-badge">Projet Technique</span>
+        <h3>3. VALMEV</h3>
+        <p class="projet-intro">
+          Présentez ici le projet VALMEV : son contexte, votre contribution et les enjeux techniques associés.
+        </p>
+        <ul class="projet-details">
+          <li><strong>Contexte :</strong> Présentation générale du projet VALMEV.</li>
+          <li><strong>Réalisation :</strong> Les étapes techniques que vous avez menées.</li>
+          <li><strong>Compétences mobilisées :</strong> Travail d'équipe, rigueur, outils techniques.</li>
+        </ul>
+        <a href="https://github.com/oeoeoepdf" class="projet-lien">Voir le dossier du projet →</a>
       </article>
+
     </section>
 
   </main>
@@ -166,7 +195,26 @@
     <p>Contact : jules.tpns@gmail.com</p>
     <p><a href="#accueil" class="retour-haut">↑ Remonter à la présentation</a></p>
   </footer>
+<!-- Script pour changer le projet affiché au clic -->
+  <script>
+    const boutonsProjets = document.querySelectorAll('.btn-projet');
+    const fichesProjets = document.querySelectorAll('.projet-grand');
 
+    boutonsProjets.forEach((bouton) => {
+      bouton.addEventListener('click', () => {
+        // 1. On désactive tous les boutons et on masque toutes les fiches
+        boutonsProjets.forEach((b) => b.classList.remove('actif'));
+        fichesProjets.forEach((fiche) => fiche.classList.remove('actif'));
+
+        // 2. On met en évidence le bouton sur lequel on vient de cliquer
+        bouton.classList.add('actif');
+
+        // 3. On affiche uniquement la fiche correspondante
+        const idCible = bouton.getAttribute('data-cible');
+        document.getElementById(idCible).classList.add('actif');
+      });
+    });
+  </script>
 </body>
 </html>
 
