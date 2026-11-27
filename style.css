@@ -170,9 +170,14 @@ main, footer {
   padding: 2rem 1rem;
 }
 
+/* Chaque section occupe au minimum un écran complet */
 section {
-  margin-bottom: 3.5rem;
-  scroll-margin-top: 2rem;
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding-top: 3rem;
+  padding-bottom: 4rem;
+  margin-bottom: 6rem; /* Espace supplémentaire entre Parcours et Projets */
+  scroll-margin-top: 0;
 }
 
 .carte {
